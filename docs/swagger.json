@@ -1,0 +1,126 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "API de Alertas de Spread",
+      "version": "1.0.0",
+      "description": "Una API para establecer y verificar alertas de spread para pares de divisas."
+    },
+    "basePath": "/",
+    
+    "paths": {
+      "/api/spread/all": {
+        "get": {
+          "summary": "Obtener el spread de todos los mercados",
+          "tags": ["Consultas Spread"],
+          "responses": {
+            "200": {
+              "description": "Operación exitosa. Devuelve el spread de todos los mercados."
+            },
+            "500": {
+              "description": "Error interno del servidor. No se pudieron obtener los spreads de los mercados."
+            }
+          }
+        }
+      },
+      "/api/spread/{pair}": {
+        "get": {
+          "summary": "Calcular el spread de un mercado específico",
+          "tags": ["Consultas Spread"],
+          "parameters": [
+            {
+              "name": "pair",
+              "in": "path",
+              "description": "El par de divisas para calcular el spread",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Operación exitosa. Devuelve el spread calculado para el par de divisas especificado."
+            },
+            "500": {
+              "description": "Error interno del servidor. No se pudo calcular el spread para el par de divisas especificado."
+            }
+          }
+        }
+      },
+      "/api/alert/spread/all": {
+        "get": {
+          "summary": "Verificar el spread de alerta de todos los pares",
+          "tags": ["Consultas y Registro Alertas Spread"],
+          "responses": {
+            "200": {
+              "description": "Operación exitosa. Devuelve el spread de alerta para todos los pares de divisas."
+            },
+            "500": {
+              "description": "Error interno del servidor. No se pudieron verificar los spreads de alerta."
+            }
+          }
+        }
+      },
+      "/api/alert/spread/{pair}": {
+        "get": {
+          "summary": "Verificar el spread actual contra el spread de alerta",
+          "tags": ["Consultas y Registro Alertas Spread"],
+          "parameters": [
+            {
+              "name": "pair",
+              "in": "path",
+              "description": "El par de divisas para verificar el spread de alerta",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Operación exitosa. Devuelve información sobre el spread actual y el spread de alerta para el par de divisas especificado."
+            },
+            "404": {
+              "description": "El par de divisas no fue encontrado. No se estableció un spread de alerta para este par."
+            },
+            "500": {
+              "description": "Error interno del servidor. No se pudo verificar el spread de alerta."
+            }
+          }
+        },
+        "post": {
+          "summary": "Guardar un spread de alerta para un par de divisas específico",
+          "tags": ["Consultas y Registro Alertas Spread"],
+          "parameters": [
+            {
+              "name": "pair",
+              "in": "path",
+              "description": "El par de divisas para guardar el spread de alerta",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "alertSpread",
+              "in": "body",
+              "description": "El spread de alerta a guardar",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "alertSpread": {
+                    "type": "number",
+                    "example": 0.5
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Operación exitosa. El spread de alerta ha sido guardado correctamente."
+            },
+            "500": {
+              "description": "Error interno del servidor. No se pudo guardar el spread de alerta."
+            }
+          }
+        }
+      }
+    }
+  }
+  
