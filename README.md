@@ -1,5 +1,5 @@
 # Instrucciones de inicio del proyecto
-Proyecto que permite consultar, via restAPI, los spread de mercados y generar y consultar alertas de spread vs spread de mercado de buda.com
+Proyecto que permite , via restAPI, consultar los spread de mercados de buda.com, y generar y consultar alertas de spread vs spread de mercado.
 
 # Requisitos previos
 Antes de comenzar, asegúrate de tener instalado lo siguiente en tu sistema:
