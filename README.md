@@ -10,41 +10,41 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente en tu sistema:
 # Instrucciones de instalación
 Clona este repositorio en tu máquina local:
 
-git clone https://github.com/cokeghm/spread-api.git
+`git clone https://github.com/cokeghm/spread-api.git`
 
 # Navega hasta el directorio del proyecto:
 
-cd dir/spread-api
+`cd dir/spread-api`
 
   # Utilizando Docker
   Si prefieres utilizar Docker para ejecutar el proyecto:
   
   Construye la imagen Docker:
   
-  docker build -t spread-api .
+  `docker build -t spread-api .`
   
   Ejecuta el contenedor:
   
-  docker run -p 3000:3000 spread-api
+  `docker run -p 3000:3000 spread-api`
   
-  El servidor debería estar disponible en http://localhost:3000.
+  El servidor debería estar disponible en `http://localhost:3000`.
 
   # Sin Docker
   Si prefieres ejecutar el proyecto sin Docker:
   
   Instala las dependencias del proyecto:
-  npm install
+  `npm install`
   
   Inicia el servidor:
-  npm start
+  `npm start`
   
  ### El servidor debería estar disponible en http://localhost:3000 y puedes hacer tus consultas segun documentación en swagger: http://localhost:3000/api-docs 
 
 # Detener el servidor
 Para detener el servidor en Docker, ejecuta el siguiente comando en otra terminal:
 
-docker stop spread-api
+`docker stop spread-api`
 
-Para detener el servidor sin Docker, puedes presionar Ctrl + C en la terminal donde se está ejecutando el servidor.
+Para detener el servidor sin Docker, puedes presionar `Ctrl + C` en la terminal donde se está ejecutando el servidor.
 
-¡Eso es todo! Ahora deberías tener el proyecto en funcionamiento en tu entorno local. Si tienes alguna pregunta o problema, no dudes en contactarnos.
+¡Eso es todo! Ahora deberías tener el proyecto en funcionamiento en tu entorno local. Si tienes alguna pregunta o problema, no dudes en contactarme al correo cokeghm@gmail.com (Jorge Gonzalez).
